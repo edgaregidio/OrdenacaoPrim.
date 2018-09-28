@@ -1,7 +1,7 @@
 package br.ordenacao;
 
 public class QuickSort {
-	
+
 	private static long tempoMili;
 	private static long tempoNano;
 
@@ -14,18 +14,14 @@ public class QuickSort {
 		int dir = direita;
 		String pivo = desordenado[(esq + dir) / 2];
 		String troca;
-		while (esq <= dir)
-		{
-			while (desordenado[esq].length() < pivo.length())
-			{
+		while (esq <= dir) {
+			while (desordenado[esq].length() < pivo.length()) {
 				esq = esq + 1;
 			}
-			while (desordenado[dir].length() > pivo.length())
-			{
+			while (desordenado[dir].length() > pivo.length()) {
 				dir = dir - 1;
 			}
-			if (esq <= dir)
-			{
+			if (esq <= dir) {
 				troca = desordenado[esq];
 				desordenado[esq] = desordenado[dir];
 				desordenado[dir] = troca;
@@ -60,6 +56,5 @@ public class QuickSort {
 	public static long getTempoNano() {
 		return tempoNano;
 	}
-
 
 }

@@ -1,30 +1,10 @@
 package br.ordenacao;
 
 public class BubbleSort {
-	
+
 	private static long tempoMili;
 	private static long tempoNano;
 
-	// GET E SET
-	
-	private static void setTempoMili(long tempoMili) {
-		BubbleSort.tempoMili = tempoMili;
-	}
-	
-	private static void setTempoNano(long tempoNano) {
-		BubbleSort.tempoNano = tempoNano;
-	}
-	
-	public static long getTempoMili() {
-		return tempoMili;
-	}
-	
-	public static long getTempoNano() {
-		return tempoNano;
-	}
-	
-	// MÉTODO BUBBLE
-	
 	public static String[] bubbleSort(String[] desordenado) {
 
 		long comecoMili = System.currentTimeMillis();
@@ -48,5 +28,20 @@ public class BubbleSort {
 
 	}
 
+	private static void setTempoMili(long tempoMili) {
+		BubbleSort.tempoMili = tempoMili;
+	}
+
+	private static void setTempoNano(long tempoNano) {
+		BubbleSort.tempoNano = tempoNano;
+	}
+
+	public static long getTempoMili() {
+		return tempoMili;
+	}
+
+	public static long getTempoNano() {
+		return tempoNano;
+	}
 
 }

@@ -1,45 +1,70 @@
 package br.leitura;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class LerArquivo {
-	
-	private static String[] vetorVolta;
-	private static BufferedReader br;
-	
 
-	public static String[] lerArq() {
-		
+	private static String arq1 = "C:/Users/Jefferson/Workspace - FASAM/Dicionário/English(American)1.txt";
+	private static String arq2 = "C:/Users/Jefferson/Workspace - FASAM/Dicionário/Portuguese(Brazilian)2.txt";
+	private static String arq3 = "C:/Users/Jefferson/Workspace - FASAM/Dicionário/Spanish3.txt";
+	private static BufferedReader lerArq;
+
+	public static String[] lerArq(int numArq) {
+		String[] vetorVolta = new String[tamanhoVetor(numArq)];
+		String arquivo;
+		int contador = 0;
+		if (numArq == 1) {
+			arquivo = arq1;
+		} else if (numArq == 2) {
+			arquivo = arq2;
+		} else {
+			arquivo = arq3;
+		}
+
 		try {
+			FileReader arq = new FileReader(arquivo);
+			lerArq = new BufferedReader(arq);
 
-			JFileChooser fc = new JFileChooser("");
-			fc.setDialogTitle("Escolha Um  Dicionario Na Pasta Do Projeto");
-			fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-			FileNameExtensionFilter filtro = new FileNameExtensionFilter("Arquivo de Texto.txt", "txt");
-			fc.setFileFilter(filtro);
-			fc.showOpenDialog(fc);
-			File arq = fc.getSelectedFile();
-			File file = new File(arq.getPath());
-			br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF8"));
-			int tamanho = Integer.parseInt(br.readLine());
-			vetorVolta = new String[tamanho];
+			String linha = lerArq.readLine();
+			linha = lerArq.readLine();
+			while (linha != null) {
 
-			for (int i = 0; i < vetorVolta.length; i++) { 
-                vetorVolta[i] = br.readLine(); 
-            }
+				vetorVolta[contador] = linha;
+				linha = lerArq.readLine();
+				contador++;
+
 			}
-		catch (IOException e) {
-			
+		} catch (IOException e) {
+
 		}
 
 		return vetorVolta;
+	}
+
+	public static int tamanhoVetor(int numArq) {
+
+		String arquivo;
+		int tamanho = 0;
+		if (numArq == 1) {
+			arquivo = arq1;
+		} else if (numArq == 2) {
+			arquivo = arq2;
+		} else {
+			arquivo = arq3;
+		}
+
+		try {
+			FileReader arq = new FileReader(arquivo);
+			BufferedReader lerArq = new BufferedReader(arq);
+
+			tamanho = Integer.parseInt(lerArq.readLine());
+			arq.close();
+		} catch (IOException e) {
+
+		}
+		return tamanho;
 	}
 
 }

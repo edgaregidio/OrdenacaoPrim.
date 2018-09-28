@@ -1,29 +1,26 @@
 package br.principal;
 
-import java.util.Arrays;
-
 import javax.swing.JOptionPane;
 
 import br.busca.BuscaBinaria;
 import br.busca.BuscaSequencial;
 import br.leitura.LerArquivo;
-import br.ordenacao.BubbleSort;
-import br.ordenacao.InsertionSort;
-import br.ordenacao.MergeSort;
-import br.ordenacao.QuickSort;
-import br.ordenacao.SelectionSort;
+import br.ordenacao.*;
 
 public class Principal {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		boolean sair = false;
+		Object[] dicionarios = { "1", "2", "3"};
 		Object[] ordenacao = { "1", "2", "3","4","5"};
 		Object[] opcoes = {"1","2","3","4"};
 		Object[] busca = {"1","2"};
 		
-		String[] vetor = LerArquivo.lerArq();
+		String msg = "Informe o Dicionário Para Ser Ordenado e Realizado A Busca:\n\n1 - "
+				+ "English(American)\n2 - Portuguese(Brazilian)\n3 - Spanish\n\nOBS: Para Mudar o Dicionário é Preciso\n Fechar o Programa e Abrir De Novo!\n\n";
+		
+		int opcaoDicionario = Integer.parseInt((String) JOptionPane.showInputDialog(null, msg, "Dicionários", 1, null, dicionarios, null));
+		String[] vetor = LerArquivo.lerArq(opcaoDicionario);
 		for(int i = 0; i < vetor.length; i++){
 			System.out.println(vetor[i]);
 		}
@@ -72,7 +69,7 @@ public class Principal {
 				
 				break;
 			case 2:
-				Arrays.sort(vetor);
+				vetor = LerArquivo.lerArq(opcaoDicionario);
 				for(int i = 0; i < vetor.length; i++){
 					System.out.println(vetor[i]);
 				}
@@ -80,7 +77,6 @@ public class Principal {
 
 				break;
 			case 3:
-				Arrays.sort(vetor);
 				String buscaFeita="";
 				int buscar = Integer.parseInt((String) JOptionPane.showInputDialog(null,"Escolha o Tipo De Busca:\n\n1 - Sequencial\n2 - "
 						+ "Binária\n\n","Tipos De Busca",1,null,busca,null ));
@@ -90,18 +86,22 @@ public class Principal {
 					JOptionPane.showMessageDialog(null,""+BuscaSequencial.buscaPalavra(vetor, buscaFeita),"Busca Sequencial",1);
 				}
 				else{
+					JOptionPane.showMessageDialog(null,"Para Buscar Usando a Busca Binária é Necessário Ordenar Dicionário Por "
+							+ "Ordem Lexicográfica!!\nOrdenando!!","Ordenar",1);
+					vetor = LerArquivo.lerArq(opcaoDicionario);
 					JOptionPane.showMessageDialog(null,""+BuscaBinaria.buscaPalavra(vetor, buscaFeita,0,vetor.length-1),"Busca Binaria",1);
 				}
 				
 				break;
 			case 4:
-				JOptionPane.showMessageDialog(null,"Saindo!","Saindo",1);
+				JOptionPane.showMessageDialog(null,"Fechando e Saindo...","Saindo",1);
 				sair = true;
 				break;
 			}
 				
 
 		} while (!sair);
+
 	}
 
 }

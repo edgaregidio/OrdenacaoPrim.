@@ -1,29 +1,9 @@
 package br.ordenacao;
 
 public class SelectionSort {
-	
+
 	private static long tempoMili;
 	private static long tempoNano;
-
-	// GET E SET
-	
-	private static void setTempoMili(long tempoMili) {
-		SelectionSort.tempoMili = tempoMili;
-	}
-	
-	private static void setTempoNano(long tempoNano) {
-		SelectionSort.tempoNano = tempoNano;
-	}
-	
-	public static long getTempoMili() {
-		return tempoMili;
-	}
-	
-	public static long getTempoNano() {
-		return tempoNano;
-	}
-	
-	// MÉTODO SELECTSORT
 
 	public static String[] selectionSort(String[] desordenado) {
 
@@ -47,5 +27,20 @@ public class SelectionSort {
 		return desordenado;
 	}
 
+	private static void setTempoMili(long tempoMili) {
+		SelectionSort.tempoMili = tempoMili;
+	}
+
+	private static void setTempoNano(long tempoNano) {
+		SelectionSort.tempoNano = tempoNano;
+	}
+
+	public static long getTempoMili() {
+		return tempoMili;
+	}
+
+	public static long getTempoNano() {
+		return tempoNano;
+	}
 
 }

@@ -1,32 +1,11 @@
 package br.busca;
 
 public class BuscaSequencial {
-	
+
 	public static long tempoBuscaMili;
 	public static long tempoBuscaNano;
 
-	// GET E SET
-	
-	public static long getTempoBuscaMili() {
-		return tempoBuscaMili;
-	}
-	
-	private static void setTempoBuscaMili(long tempoBuscaMili) {
-		BuscaSequencial.tempoBuscaMili = tempoBuscaMili;
-	}
-	
-	public static long getTempoBuscaNano() {
-		return tempoBuscaNano;
-	}
-	
-	private static void setTempoBuscaNano(long tempoBuscaNano) {
-		BuscaSequencial.tempoBuscaNano = tempoBuscaNano;
-	}
-
-	// MÉTODO BUSCAR
-	
 	public static String buscaPalavra(String[] vetor, String palavraBuscar) {
-		
 		long comecoMili = System.currentTimeMillis();
 		long comecoNano = System.nanoTime();
 		String resposta = "Not";
@@ -50,5 +29,20 @@ public class BuscaSequencial {
 		return resposta;
 	}
 
+	public static long getTempoBuscaMili() {
+		return tempoBuscaMili;
+	}
+
+	private static void setTempoBuscaMili(long tempoBuscaMili) {
+		BuscaSequencial.tempoBuscaMili = tempoBuscaMili;
+	}
+
+	public static long getTempoBuscaNano() {
+		return tempoBuscaNano;
+	}
+
+	private static void setTempoBuscaNano(long tempoBuscaNano) {
+		BuscaSequencial.tempoBuscaNano = tempoBuscaNano;
+	}
 
 }

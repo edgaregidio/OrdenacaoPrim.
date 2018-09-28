@@ -1,30 +1,10 @@
 package br.ordenacao;
 
 public class MergeSort {
-	
+
 	private static long tempoMili;
 	private static long tempoNano;
-	
-	// 	GET E SET
-	
-	private static void setTempoMili(long tempoMili) {
-		MergeSort.tempoMili = tempoMili;
-	}
-	
-	private static void setTempoNano(long tempoNano) {
-		MergeSort.tempoNano = tempoNano;
-	}
-	
-	public static long getTempoMili() {
-		return tempoMili;
-	}
-	
-	public static long getTempoNano() {
-		return tempoNano;
-	}
 
-	// MÉTODOS MERGE
-	
 	public static String[] mergeSort(String[] desordenado, int comeco, int fim) {
 
 		long comecoMili = System.currentTimeMillis();
@@ -70,5 +50,20 @@ public class MergeSort {
 		}
 	}
 
+	private static void setTempoMili(long tempoMili) {
+		MergeSort.tempoMili = tempoMili;
+	}
+
+	private static void setTempoNano(long tempoNano) {
+		MergeSort.tempoNano = tempoNano;
+	}
+
+	public static long getTempoMili() {
+		return tempoMili;
+	}
+
+	public static long getTempoNano() {
+		return tempoNano;
+	}
 
 }

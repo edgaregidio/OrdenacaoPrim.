@@ -1,29 +1,9 @@
 package br.ordenacao;
 
 public class InsertionSort {
-	
+
 	private static long tempoMili;
 	private static long tempoNano;
-
-	// GET E SET
-	
-	private static void setTempoMili(long tempoMili) {
-		InsertionSort.tempoMili = tempoMili;
-	}
-	
-	private static void setTempoNano(long tempoNano) {
-		InsertionSort.tempoNano = tempoNano;
-	}
-	
-	public static long getTempoMili() {
-		return tempoMili;
-	}
-	
-	public static long getTempoNano() {
-		return tempoNano;
-	}
-	
-	// MÉTODO INSERT
 
 	public static String[] insertionSort(String[] desordenado) {
 
@@ -44,5 +24,19 @@ public class InsertionSort {
 		return desordenado;
 	}
 
+	private static void setTempoMili(long tempoMili) {
+		InsertionSort.tempoMili = tempoMili;
+	}
 
+	private static void setTempoNano(long tempoNano) {
+		InsertionSort.tempoNano = tempoNano;
+	}
+
+	public static long getTempoMili() {
+		return tempoMili;
+	}
+
+	public static long getTempoNano() {
+		return tempoNano;
+	}
 }
